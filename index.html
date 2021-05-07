@@ -418,7 +418,7 @@ import json
 filename = 'username.json'
 try:
     with open(filename) as f_obj:
-    username = json.load(f_obj)
+        username = json.load(f_obj)
 except FileNotFoundError:
     username = input("What is your name? ")
     with open(filename, 'w') as f_obj:
@@ -626,7 +626,7 @@ OK
                     </div>
                 </section>
                 <section>
-                    <h3>A Variety of Asset Methods</h3>
+                    <h3>A Variety of Assert Methods</h3>
                     <div class="fragment">
                         <pre><code class="line-numbers" data-trim contenteditable>
 assertEqual(a, b) # Verify that a == b
