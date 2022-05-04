@@ -574,15 +574,14 @@ man
                         </div>
                     </div>
                 </section>
-                <section data-background-image="bg.png">
-                    <div class="div-c">
-                        <ul>
-                            <li class="fragment">
-                                <p>Overwrite completely</p>
-                            </li>
-                        </ul>
-                        <div class="fragment">
-                            <pre><code class="language-Python" data-line-numbers data-trim contenteditable>
+                <section>
+                    <ul>
+                        <li class="fragment">
+                            <p>Overwrite completely</p>
+                        </li>
+                    </ul>
+                    <div class="fragment">
+                        <pre><code class="language-Python" data-line-numbers data-trim contenteditable>
 class Person:
     def __init__(self,name,sex):
         self.name = name
@@ -597,56 +596,15 @@ class Child(Person):
 May = Child("May","female","April")
 print(May.name,May.sex,May.mother)    
 </code></pre>
-                        </div>
-                        <div class="fragment">
-                            <pre><code class="language-Python" data-line-numbers data-trim contenteditable>
+                    </div>
+                    <div class="fragment">
+                        <pre><code class="output" data-trim contenteditable>
 May female April  
 </code></pre>
-                        </div>
                     </div>
-                    <div class="div-d">
-                        <ul>
-                            <li class="fragment">
-                                <p>Overwrite partially</p>
-                            </li>
-                        </ul>
-                        <div class="fragment">
-                            <pre><code class="language-Python" data-line-numbers data-trim contenteditable>
-class Person:
-    def __init__(self,name,sex):
-        self.name = name
-        self.sex = sex
-
-class Child(Person):                          
-    def __init__(self,name,sex,mother):
-        Person.__init__(self,name,sex) 
-        #super().__init__(name,sex)  
-        self.mother = mother
-
-May = Child("May","female","April")
-print(May.name,May.sex,May.mother)
-</code></pre>
-                        </div>
-                        <div class="fragment">
-                            <pre><code class="language-Python" data-line-numbers data-trim contenteditable>
-May female April
-</code></pre>
-                        </div>
-                    </div>
-                </section>
-                <section>
                     <ul>
                         <li class="fragment">
-                            <p>Person. and super(). are almost the same <b>for the single inheritance with or without modification</b>. Do not mix them together!</p>
-                        </li>
-                        <li class="fragment">
                             <p>If you just need complete inheritance of attributes, then all three ways are equivalent.</p>
-                        </li>
-                        <li class="fragment">
-                            <p>Without Person. super(), __init__ in the child class overwrites the __init__ in the parent class.</p>
-                        </li>
-                        <li class="fragment">
-                            <p>You would better use <b>super()</b> to inherit or extend the method of the parent class.</p>
                         </li>
                         <li class="fragment">
                             <p>There is no, "new-style-and-classic-classes" (新式类，经典类) in Python 3.x.</p>
@@ -748,7 +706,7 @@ class Dog():
         self.name = name
         self.age = age
     def __str__(self):
-        return "Dog's name is %s." % self.name  
+        return "Dog's name is {}.".format(self.name)
 
 
 my_dog = Dog('willie', 6)
@@ -806,6 +764,7 @@ willie
 </code></pre>
                     </div>
                 </section>
+                <!--
                 <section>
                     <ul>
                         <li class="fragment">
@@ -849,6 +808,7 @@ willie your_dog
 </code></pre>
                     </div>
                 </section>
+            -->
                 <section data-background-image="bg.png">
                     <ul>
                         <li class="fragment">
@@ -933,36 +893,28 @@ This car has 23 miles on it.
                             <p>Storing Multiple Classes in a Module</p>
                         </li>
                         <li class="fragment">
-                            <p>You can store as many classes as you need in a single module, although each class in a module should be related somehow. The classes <b>Battery </b>and <b>ElectricCar</b> both help represent cars, so let's add them to the module <b>car.py</b></p>
+                            <p>You can store as many classes as you need in a single module, although each class in a module should be related somehow. </p>
                         </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="language-Python" data-line-numbers data-trim contenteditable>
+                        <div class="fragment">
+                            <pre><code class="language-Python" data-line-numbers data-trim contenteditable>
 from car import ElectricCar
 
 my_tesla = ElectricCar('tesla', 'model s', 2016)
 
 print(my_tesla.get_descriptive_name())
-my_tesla.battery.describe_battery()
-my_tesla.battery.get_range()
 </code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="output" data-trim contenteditable>
+                        </div>
+                        <div class="fragment">
+                            <pre><code class="output" data-trim contenteditable>
 2016 Tesla Model S
-This car has a 70-kWh battery.
-This car can go approximately 240 miles on a full charge.
+
 </code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
+                        </div>
                         <li class="fragment">
                             <p>Importing Multiple Classes from a Module</p>
                         </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="language-Python" data-line-numbers data-trim contenteditable>
+                        <div class="fragment">
+                            <pre><code class="language-Python" data-line-numbers data-trim contenteditable>
 from car import Car, ElectricCar
 
 my_beetle = Car('volkswagen', 'beetle', 2016)
@@ -971,13 +923,14 @@ print(my_beetle.get_descriptive_name())
 my_tesla = ElectricCar('tesla', 'roadster', 2016)
 print(my_tesla.get_descriptive_name())
 </code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="output" data-trim contenteditable>
+                        </div>
+                        <div class="fragment">
+                            <pre><code class="output" data-trim contenteditable>
 2016 Volkswagen Beetle
 2016 Tesla Roadster
 </code></pre>
-                    </div>
+                        </div>
+                    </ul>
                 </section>
                 <section>
                     <ul>
